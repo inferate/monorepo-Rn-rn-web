@@ -8,6 +8,8 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "commonjs",
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
     "outDir": "dist",
     "moduleResolution": "node",
     "resolveJsonModule": true,
