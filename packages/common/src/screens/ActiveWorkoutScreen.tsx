@@ -1,11 +1,11 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Container, Title } from "../styled/DefaultLayout/DefaultLayoutTitle";
 
 interface IActiveWorkoutScreen {}
 export const ActiveWorkoutScreen: React.FC<IActiveWorkoutScreen> = () => {
   return (
-    <View>
-      <Text>This is your current WK </Text>
-    </View>
+    <Container>
+      <Title>This is your current WK </Title>
+    </Container>
   );
 };
