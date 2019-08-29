@@ -1,12 +1,22 @@
+import { observer } from "mobx-react-lite";
 import React from "react";
-import { Text, View } from "react-native";
+import { NavigationStoreContext } from "../stores/NavigationStore";
+import { theme } from "../styled";
+import { CustomButton } from "../styled/DefaultButton/DefaultButton";
+import { Container, Title } from "../styled/DefaultLayout/DefaultLayoutTitle";
 
 interface IWokroutHistory {}
 
-export const WorkoutHistoryScreen: React.FC<IWokroutHistory> = () => {
+export const WorkoutHistoryScreen: React.FC<IWokroutHistory> = observer(() => {
+  const navigationStore = React.useContext(NavigationStoreContext);
   return (
-    <View>
-      <Text>This is your WK History</Text>
-    </View>
+    <Container>
+      <Title>This is your WK History</Title>
+      <CustomButton
+        backgroundColor={theme.buttonStyles.main}
+        color={theme.textStyle.thirdy}
+        title={"WK"}
+      />
+    </Container>
   );
-};
+});

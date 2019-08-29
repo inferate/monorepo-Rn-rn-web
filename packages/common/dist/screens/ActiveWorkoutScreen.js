@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var react_native_1 = require("react-native");
+var DefaultLayoutTitle_1 = require("../styled/DefaultLayout/DefaultLayoutTitle");
 exports.ActiveWorkoutScreen = function () {
-    return (react_1.default.createElement(react_native_1.View, null,
-        react_1.default.createElement(react_native_1.Text, null, "This is your current WK ")));
+    return (react_1.default.createElement(DefaultLayoutTitle_1.Container, null,
+        react_1.default.createElement(DefaultLayoutTitle_1.Title, null, "This is your current WK ")));
 };
