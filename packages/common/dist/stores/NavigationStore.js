@@ -8,9 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var mobx_1 = require("mobx");
 var react_1 = require("react");
+var Navigation2;
+(function (Navigation2) {
+    Navigation2["Home"] = "Home";
+    Navigation2["ActiveWorkoutScreen"] = "ActiveWorkoutScreen";
+})(Navigation2 = exports.Navigation2 || (exports.Navigation2 = {}));
 var NavigationStore = /** @class */ (function () {
     function NavigationStore() {
-        this.path = "Dashboard/Home";
+        this.path = Navigation2.Home;
     }
     __decorate([
         mobx_1.observable

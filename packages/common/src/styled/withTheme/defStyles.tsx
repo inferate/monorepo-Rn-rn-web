@@ -3,7 +3,7 @@ export const theme = {
   secondary: "red",
 
   textStyle: {
-    primary: "blue",
+    primary: "#fff",
     secondary: "purlple",
     thirdy: "black"
   },

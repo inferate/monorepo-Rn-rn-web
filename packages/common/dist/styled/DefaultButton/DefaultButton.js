@@ -10,18 +10,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var react_native_1 = require("react-native");
 var styled_components_1 = __importDefault(require("styled-components"));
-var ButtonContainer = styled_components_1.default(react_native_1.TouchableOpacity)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n\twidth: 100px;\n\theight: 40px\n\tpadding: 12px;\n\tborder-radius: 10px;\t\n\tbackground-color: ", ";\n"], ["\n\twidth: 100px;\n\theight: 40px\n\tpadding: 12px;\n\tborder-radius: 10px;\t\n\tbackground-color: ",
+var ButtonContainer = styled_components_1.default(react_native_1.TouchableOpacity)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n\twidth: 100px;\n\theight: 40px\n\tpadding: 12px;\n\tborder-radius: 10px;\t\n  background-color: ", ";\n"], ["\n\twidth: 100px;\n\theight: 40px\n\tpadding: 12px;\n\tborder-radius: 10px;\t\n  background-color: ",
     ";\n"])), function (props) {
-    return props.theme.buttonStyles.main
+    return props.backgroundColor
         ? props.theme.buttonStyles.main
         : props.theme.buttonStyles.default;
 });
 var ButtonText = styled_components_1.default(react_native_1.Text)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  font-size: 15px;\n  text-align: center;\n  color: ", ";\n"], ["\n  font-size: 15px;\n  text-align: center;\n  color: ",
     ";\n"])), function (props) {
-    return props.theme.textStyle
-        ? props.theme.textStyle.thirdy
-        : props.theme.backgroundStyle.default;
+    return props.color
+        ? props.theme.textStyle.primary
+        : props.theme.textStyles.thirdy;
 });
-exports.CustomButton = function (props) { return (react_1.default.createElement(ButtonContainer, { backgroundColor: props.backgroundColor },
+exports.CustomButton = function (props) { return (react_1.default.createElement(ButtonContainer, { backgroundColor: props.backgroundColor, onPress: props.onPress },
     react_1.default.createElement(ButtonText, { color: props.color }, props.title))); };
 var templateObject_1, templateObject_2;

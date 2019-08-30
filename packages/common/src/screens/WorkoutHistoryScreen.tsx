@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
-import { NavigationStoreContext } from "../stores/NavigationStore";
+import { Navigation2, NavigationStoreContext } from "../stores/NavigationStore";
 import { theme } from "../styled";
 import { CustomButton } from "../styled/DefaultButton/DefaultButton";
 import { Container, Title } from "../styled/DefaultLayout/DefaultLayoutTitle";
@@ -14,8 +14,11 @@ export const WorkoutHistoryScreen: React.FC<IWokroutHistory> = observer(() => {
       <Title>This is your WK History</Title>
       <CustomButton
         backgroundColor={theme.buttonStyles.main}
-        color={theme.textStyle.thirdy}
+        color={theme.textStyle.primary}
         title={"WK"}
+        onPress={() => {
+          navigationStore.path = Navigation2.ActiveWorkoutScreen;
+        }}
       />
     </Container>
   );

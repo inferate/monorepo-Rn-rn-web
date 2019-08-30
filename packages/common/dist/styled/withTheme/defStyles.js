@@ -4,7 +4,7 @@ exports.theme = {
     primary: "green",
     secondary: "red",
     textStyle: {
-        primary: "blue",
+        primary: "#fff",
         secondary: "purlple",
         thirdy: "black"
     },

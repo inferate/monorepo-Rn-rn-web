@@ -13,5 +13,7 @@ exports.WorkoutHistoryScreen = mobx_react_lite_1.observer(function () {
     var navigationStore = react_1.default.useContext(NavigationStore_1.NavigationStoreContext);
     return (react_1.default.createElement(DefaultLayoutTitle_1.Container, null,
         react_1.default.createElement(DefaultLayoutTitle_1.Title, null, "This is your WK History"),
-        react_1.default.createElement(DefaultButton_1.CustomButton, { backgroundColor: styled_1.theme.buttonStyles.main, color: styled_1.theme.textStyle.thirdy, title: "WK" })));
+        react_1.default.createElement(DefaultButton_1.CustomButton, { backgroundColor: styled_1.theme.buttonStyles.main, color: styled_1.theme.textStyle.primary, title: "WK", onPress: function () {
+                navigationStore.path = NavigationStore_1.Navigation2.ActiveWorkoutScreen;
+            } })));
 });
