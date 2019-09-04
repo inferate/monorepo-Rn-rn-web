@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.theme = {
-    primary: "green",
+    primary: "#fff",
     secondary: "red",
+    primaryBackground: "#fafafa",
     textStyle: {
         primary: "#fff",
         secondary: "purlple",

@@ -1,6 +1,7 @@
 export declare const theme: {
     primary: string;
     secondary: string;
+    primaryBackground: string;
     textStyle: {
         primary: string;
         secondary: string;
