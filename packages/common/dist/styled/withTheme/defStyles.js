@@ -7,7 +7,8 @@ exports.theme = {
     textStyle: {
         primary: "#fff",
         secondary: "purlple",
-        thirdy: "black"
+        thirdy: "black",
+        empty: "#F0D3F7"
     },
     backgroundStyle: {
         primary: "#ffefd5",

@@ -8,6 +8,7 @@ export const WorkoutCard = styled(View)`
   elevation: 4px;
   background-color: ${props => props.theme.primary};
   flex-direction: column;
+  margin-bottom: 10px;
 `;
 
 export const WorkoutWrapper = styled(View)`

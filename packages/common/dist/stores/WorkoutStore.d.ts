@@ -1,7 +1,10 @@
-/// <reference types="react" />
 import { ICurrentWorkoutDay } from "../enums/ICurrentWorkoutDay";
 import { IWorkoutStoreHistory } from "../models/IWorkoutStore";
-declare class WorkoutStore {
+import { ICurrentWorkoutExercise } from "./../models/ICurrentWorkoutExercise";
+import { RootStore } from "./RootStore";
+export declare class WorkoutStore {
+    rootStore: RootStore;
+    constructor(rootStore: RootStore);
     currentSquats: number;
     currentBenchPress: number;
     currentOverheadPress: number;
@@ -9,6 +12,5 @@ declare class WorkoutStore {
     currentJumps: number;
     currentWorkoutDay: ICurrentWorkoutDay;
     workoutHistory: IWorkoutStoreHistory;
+    currentExercise: ICurrentWorkoutExercise[];
 }
-export declare const WorkoutStoreContext: import("react").Context<WorkoutStore>;
-export {};
