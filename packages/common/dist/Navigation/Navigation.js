@@ -12,7 +12,8 @@ var react_1 = __importStar(require("react"));
 var ActiveWorkoutScreen_1 = require("../screens/ActiveWorkoutScreen");
 var WorkoutHistoryScreen_1 = require("../screens/WorkoutHistoryScreen");
 var NavigationStore_1 = require("../stores/NavigationStore");
-exports.Navigation = mobx_react_lite_1.observer(function () {
-    var navigationStore = react_1.useContext(NavigationStore_1.NavigationStoreContext);
-    return navigationStore.path === "Dashboard/Home" ? (react_1.default.createElement(WorkoutHistoryScreen_1.WorkoutHistoryScreen, null)) : (react_1.default.createElement(ActiveWorkoutScreen_1.ActiveWorkoutScreen, null));
+var RootStore_1 = require("../stores/RootStore");
+exports.Navigation = mobx_react_lite_1.observer(function (props) {
+    var rootStore = react_1.useContext(RootStore_1.RootStoreContext);
+    return rootStore.navigationStore.path === NavigationStore_1.Navigation2.Home ? (react_1.default.createElement(WorkoutHistoryScreen_1.WorkoutHistoryScreen, null)) : (react_1.default.createElement(ActiveWorkoutScreen_1.ActiveWorkoutScreen, null, " "));
 });

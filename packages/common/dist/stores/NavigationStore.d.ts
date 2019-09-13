@@ -1,7 +1,10 @@
-/// <reference types="react" />
-declare type Navigation = "Dashboard/Home";
-declare class NavigationStore {
-    path: Navigation;
+import { RootStore } from "./RootStore";
+export declare enum Navigation2 {
+    Home = "Home",
+    ActiveWorkoutScreen = "ActiveWorkoutScreen"
 }
-export declare const NavigationStoreContext: import("react").Context<NavigationStore>;
-export {};
+export declare class NavigationStore {
+    rootStore: RootStore;
+    constructor(rootStore: RootStore);
+    path: Navigation2;
+}

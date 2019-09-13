@@ -7,14 +7,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var mobx_1 = require("mobx");
-var react_1 = require("react");
+var Navigation2;
+(function (Navigation2) {
+    Navigation2["Home"] = "Home";
+    Navigation2["ActiveWorkoutScreen"] = "ActiveWorkoutScreen";
+})(Navigation2 = exports.Navigation2 || (exports.Navigation2 = {}));
 var NavigationStore = /** @class */ (function () {
-    function NavigationStore() {
-        this.path = "Dashboard/Home";
+    function NavigationStore(rootStore) {
+        this.path = Navigation2.Home;
+        this.rootStore = rootStore;
     }
     __decorate([
         mobx_1.observable
     ], NavigationStore.prototype, "path", void 0);
     return NavigationStore;
 }());
-exports.NavigationStoreContext = react_1.createContext(new NavigationStore());
+exports.NavigationStore = NavigationStore;
+// export const NavigationStoreContext = createContext(new NavigationStore());

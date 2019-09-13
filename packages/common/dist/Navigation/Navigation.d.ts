@@ -1,2 +1,5 @@
 import React from "react";
-export declare const Navigation: React.FunctionComponent<object>;
+interface IActiveWorkoutScreen {
+}
+export declare const Navigation: React.FunctionComponent<IActiveWorkoutScreen>;
+export {};
