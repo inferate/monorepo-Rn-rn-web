@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { RootStoreContext } from "../stores/RootStore";
 import { Container } from "../styled";
 import { WorkoutWrapper } from "../styled/DefaultCard/DefaultCard";
@@ -12,6 +12,13 @@ interface IActiveWorkoutScreen {}
 export const ActiveWorkoutScreen: React.FC<IActiveWorkoutScreen> = observer(
   () => {
     const rootStore = useContext(RootStoreContext);
+    const timer = rootStore.timerStore;
+    useEffect(() => {
+      return () => {
+        timer.stopTimer();
+      };
+    }, []);
+    const something = () => {};
 
     return (
       <Container>
@@ -20,11 +27,13 @@ export const ActiveWorkoutScreen: React.FC<IActiveWorkoutScreen> = observer(
             <WorkoutWrapper>
               <WorkoutContent
                 onSetPress={index => {
+                  rootStore.timerStore.startTimer();
                   const value = el.sets[index];
                   let newValue: string;
                   if (value === "") {
                     newValue = `${el.reps}`;
                   } else if (value === "0") {
+                    rootStore.timerStore.stopTimer();
                     newValue = "";
                   } else {
                     newValue = `${parseInt(value) - 1}`;
@@ -39,9 +48,16 @@ export const ActiveWorkoutScreen: React.FC<IActiveWorkoutScreen> = observer(
             </WorkoutWrapper>
           );
         })}
-        <WorkoutTimerContainer>
-          <WorkoutTimer onButtonPress={() => {}} />
-        </WorkoutTimerContainer>
+
+        {timer.isRunning ? (
+          <WorkoutTimerContainer>
+            <WorkoutTimer
+              percent={rootStore.timerStore.percent}
+              currentTime={timer.display}
+              onButtonPress={() => timer.stopTimer()}
+            />
+          </WorkoutTimerContainer>
+        ) : null}
       </Container>
     );
   }

@@ -6,9 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var DefaultLayoutSection_1 = require("../../styled/DefaultLayout/DefaultLayoutSection");
 exports.WorkoutTimer = function (_a) {
-    var onButtonPress = _a.onButtonPress;
-    return (react_1.default.createElement(DefaultLayoutSection_1.WorkoutTimerWrapper, null,
-        react_1.default.createElement(DefaultLayoutSection_1.TimerText, null, "text"),
-        react_1.default.createElement(DefaultLayoutSection_1.TimerBox, { onPress: onButtonPress },
-            react_1.default.createElement(DefaultLayoutSection_1.TimerText, null, "X"))));
+    var onButtonPress = _a.onButtonPress, currentTime = _a.currentTime, percent = _a.percent;
+    return (react_1.default.createElement(DefaultLayoutSection_1.WorkoutTimerContainer, null,
+        react_1.default.createElement(DefaultLayoutSection_1.ProgressBar, { style: { width: percent } }),
+        react_1.default.createElement(DefaultLayoutSection_1.TimeWrapper, null,
+            react_1.default.createElement(DefaultLayoutSection_1.TimerText, null, currentTime),
+            react_1.default.createElement(DefaultLayoutSection_1.TimerBox, { onPress: onButtonPress },
+                react_1.default.createElement(DefaultLayoutSection_1.TimerText, null, "X")))));
 };

@@ -13,6 +13,7 @@
   "dependencies": {
     "@types/styled-components": "^4.1.18",
     "components": "^0.1.0",
+    "dayjs": "^1.8.16",
     "mobx": "^5.13.0",
     "mobx-react-lite": "^1.4.1",
     "react": "^16.9.0",

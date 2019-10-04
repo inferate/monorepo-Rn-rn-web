@@ -9,8 +9,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_native_1 = require("react-native");
 var styled_components_1 = __importDefault(require("styled-components"));
-exports.WorkoutTimerWrapper = styled_components_1.default(react_native_1.View)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: absolute;\n  bottom: 0;\n  align-items:center;\n  padding:30px\n  padding-horizontal:30px\n  justify-content: space-between;\n  flex-direction: row;\n  left: 0;\n  width: 100%;\n  height: 50px;\n  background-color: ", ";\n"], ["\n  position: absolute;\n  bottom: 0;\n  align-items:center;\n  padding:30px\n  padding-horizontal:30px\n  justify-content: space-between;\n  flex-direction: row;\n  left: 0;\n  width: 100%;\n  height: 50px;\n  background-color: ", ";\n"])), function (props) { return props.theme.backgroundStyle.secondary; });
-exports.WorkoutTimerContainer = styled_components_1.default(react_native_1.View)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  width: 100%;\n  padding: 20px;\n"], ["\n  width: 100%;\n  padding: 20px;\n"])));
-exports.TimerBox = styled_components_1.default(react_native_1.TouchableOpacity)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  color: ", ";\n"], ["\n  color: ", ";\n"])), function (props) { return props.theme.secondary; });
-exports.TimerText = styled_components_1.default(react_native_1.Text)(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    color:", "\n    font-size:20px;\n"], ["\n    color:", "\n    font-size:20px;\n"])), function (props) { return props.theme.secondary; });
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
+// export const WorkoutTimerWrapper = styled(View)`
+//   bottom: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 50px;
+// `;
+exports.WorkoutTimerContainer = styled_components_1.default(react_native_1.View)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  width: 100%;\n  padding: 10px;\n  background-color: ", ";\n"], ["\n  width: 100%;\n  padding: 10px;\n  background-color: ", ";\n"])), function (props) { return props.theme.backgroundStyle.secondary; });
+exports.TimerBox = styled_components_1.default(react_native_1.TouchableOpacity)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  color: ", ";\n"], ["\n  color: ", ";\n"])), function (props) { return props.theme.secondary; });
+exports.TimerText = styled_components_1.default(react_native_1.Text)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  font-size: 20px;\n"], ["\n  font-size: 20px;\n"])));
+exports.ProgressBar = styled_components_1.default(react_native_1.View)(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n \n  height: 3px;\n  bottom: 20px;\n\n  right: 20px;\n\n  background-color: black;\n"], ["\n \n  height: 3px;\n  bottom: 20px;\n\n  right: 20px;\n\n  background-color: black;\n"])));
+exports.TimeWrapper = styled_components_1.default(react_native_1.View)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  justify-content: space-between;\n  flex-direction: row;\n  align-items: center;\n"], ["\n  justify-content: space-between;\n  flex-direction: row;\n  align-items: center;\n"])));
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;

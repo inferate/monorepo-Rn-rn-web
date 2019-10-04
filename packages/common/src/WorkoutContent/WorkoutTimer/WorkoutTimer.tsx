@@ -1,21 +1,32 @@
 import React from "react";
 import {
+  ProgressBar,
   TimerBox,
   TimerText,
-  WorkoutTimerWrapper
+  TimeWrapper,
+  WorkoutTimerContainer
 } from "../../styled/DefaultLayout/DefaultLayoutSection";
 
 interface IWorkoutTimer {
   onButtonPress: () => void;
+  currentTime: string;
+  percent: string;
 }
 
-export const WorkoutTimer: React.FC<IWorkoutTimer> = ({ onButtonPress }) => {
+export const WorkoutTimer: React.FC<IWorkoutTimer> = ({
+  onButtonPress,
+  currentTime,
+  percent
+}) => {
   return (
-    <WorkoutTimerWrapper>
-      <TimerText>text</TimerText>
-      <TimerBox onPress={onButtonPress}>
-        <TimerText>X</TimerText>
-      </TimerBox>
-    </WorkoutTimerWrapper>
+    <WorkoutTimerContainer>
+      <ProgressBar style={{ width: percent }} />
+      <TimeWrapper>
+        <TimerText>{currentTime}</TimerText>
+        <TimerBox onPress={onButtonPress}>
+          <TimerText>X</TimerText>
+        </TimerBox>
+      </TimeWrapper>
+    </WorkoutTimerContainer>
   );
 };
