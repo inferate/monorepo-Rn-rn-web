@@ -18,10 +18,13 @@
     "mobx-react-lite": "^1.4.1",
     "react": "^16.9.0",
     "react-native": "^0.60.5",
+    "react-router-dom": "^5.1.2",
     "styled": "^1.0.0",
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.1.0",
+    "@types/react-router-native": "^5.1.0",
     "rimraf": "^3.0.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.5.3"

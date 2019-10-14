@@ -15,6 +15,7 @@ interface IWorkoutContent {
   weightTimesReps: string;
   onSetPress: (index: number) => void;
   sets: string[];
+  
 }
 
 export const WorkoutContent: React.FC<IWorkoutContent> = observer(props => {

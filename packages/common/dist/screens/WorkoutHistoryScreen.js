@@ -9,12 +9,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var mobx_react_lite_1 = require("mobx-react-lite");
 var react_1 = __importStar(require("react"));
-var NavigationStore_1 = require("../stores/NavigationStore");
 var RootStore_1 = require("../stores/RootStore");
 var styled_1 = require("../styled");
 var DefaultButton_1 = require("../styled/DefaultButton/DefaultButton");
 var DefaultLayoutTitle_1 = require("../styled/DefaultLayout/DefaultLayoutTitle");
-exports.WorkoutHistoryScreen = mobx_react_lite_1.observer(function () {
+exports.WorkoutHistoryScreen = mobx_react_lite_1.observer(function (_a) {
+    var history = _a.history;
     var rootStore = react_1.useContext(RootStore_1.RootStoreContext);
     return (react_1.default.createElement(DefaultLayoutTitle_1.Container, null,
         react_1.default.createElement(DefaultLayoutTitle_1.Title, null, "This is your WK History"),
@@ -38,6 +38,7 @@ exports.WorkoutHistoryScreen = mobx_react_lite_1.observer(function () {
                     weight: 280,
                     reps: 3
                 });
-                rootStore.navigationStore.path = NavigationStore_1.Navigation2.ActiveWorkoutScreen;
+                // rootStore.navigationStore.path = Navigation2.ActiveWorkoutScreen;
+                history.push("/current-workout");
             } })));
 });
