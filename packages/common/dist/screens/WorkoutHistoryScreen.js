@@ -13,6 +13,7 @@ var RootStore_1 = require("../stores/RootStore");
 var styled_1 = require("../styled");
 var DefaultButton_1 = require("../styled/DefaultButton/DefaultButton");
 var DefaultLayoutTitle_1 = require("../styled/DefaultLayout/DefaultLayoutTitle");
+var HistoryCard_1 = require("./HistoryCard");
 exports.WorkoutHistoryScreen = mobx_react_lite_1.observer(function (_a) {
     var history = _a.history;
     var rootStore = react_1.useContext(RootStore_1.RootStoreContext);
@@ -40,5 +41,9 @@ exports.WorkoutHistoryScreen = mobx_react_lite_1.observer(function (_a) {
                 });
                 // rootStore.navigationStore.path = Navigation2.ActiveWorkoutScreen;
                 history.push("/current-workout");
-            } })));
+            } }),
+        Object.entries(rootStore.workoutStore.history).map(function (_a) {
+            var dt = _a[0], v = _a[1];
+            return react_1.default.createElement(HistoryCard_1.HistoryCard, { key: dt, day: dt, currentExercise: v });
+        })));
 });

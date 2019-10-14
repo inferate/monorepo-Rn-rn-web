@@ -5,6 +5,7 @@ import { RootStoreContext } from "../stores/RootStore";
 import { theme } from "../styled";
 import { CustomButton } from "../styled/DefaultButton/DefaultButton";
 import { Container, Title } from "../styled/DefaultLayout/DefaultLayoutTitle";
+import { HistoryCard } from "./HistoryCard";
 
 interface IWokroutHistory extends RouteComponentProps {}
 
@@ -46,6 +47,9 @@ export const WorkoutHistoryScreen: React.FC<IWokroutHistory> = observer(
             history.push("/current-workout");
           }}
         />
+        {Object.entries(rootStore.workoutStore.history).map(([dt, v]) => {
+          return <HistoryCard key={dt} day={dt} currentExercise={v} />;
+        })}
       </Container>
     );
   }

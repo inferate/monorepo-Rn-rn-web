@@ -11,5 +11,5 @@ exports.Navigation = function (props) {
     return (react_1.default.createElement(index_1.Router, null,
         react_1.default.createElement(index_1.Switch, null,
             react_1.default.createElement(index_1.Route, { exact: true, path: "/", component: WorkoutHistoryScreen_1.WorkoutHistoryScreen }),
-            react_1.default.createElement(index_1.Route, { exact: true, path: "/current-workout/", component: ActiveWorkoutScreen_1.ActiveWorkoutScreen }))));
+            react_1.default.createElement(index_1.Route, { exact: true, path: "/current-workout", component: ActiveWorkoutScreen_1.ActiveWorkoutScreen }))));
 };

@@ -9,7 +9,7 @@ export const Navigation = (props: IActiveWorkoutScreen) => {
     <Router>
       <Switch>
         <Route exact path="/" component={WorkoutHistoryScreen} />
-        <Route exact path="/current-workout/" component={ActiveWorkoutScreen} />
+        <Route exact path="/current-workout" component={ActiveWorkoutScreen} />
       </Switch>
     </Router>
   );

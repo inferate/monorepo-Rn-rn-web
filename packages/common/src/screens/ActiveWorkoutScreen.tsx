@@ -1,16 +1,19 @@
+import dayjs from "dayjs";
 import { observer } from "mobx-react-lite";
 import React, { useContext, useEffect } from "react";
+import { RouteComponentProps } from "react-router";
 import { RootStoreContext } from "../stores/RootStore";
 import { Container } from "../styled";
 import { WorkoutWrapper } from "../styled/DefaultCard/DefaultCard";
 import { WorkoutTimerContainer } from "../styled/DefaultLayout/DefaultLayoutSection";
+import { CardActionButton } from "../styled/DefaultLayout/MainLayout";
 import { WorkoutContent } from "../WorkoutContent/WorkoutContent";
 import { WorkoutTimer } from "../WorkoutContent/WorkoutTimer/WorkoutTimer";
 
-interface IActiveWorkoutScreen {}
+interface IActiveWorkoutScreen extends RouteComponentProps {}
 
 export const ActiveWorkoutScreen: React.FC<IActiveWorkoutScreen> = observer(
-  () => {
+  ({ history }) => {
     const rootStore = useContext(RootStoreContext);
     const timer = rootStore.timerStore;
     useEffect(() => {
@@ -18,7 +21,6 @@ export const ActiveWorkoutScreen: React.FC<IActiveWorkoutScreen> = observer(
         timer.stopTimer();
       };
     }, []);
-    const something = () => {};
 
     return (
       <Container>
@@ -48,7 +50,15 @@ export const ActiveWorkoutScreen: React.FC<IActiveWorkoutScreen> = observer(
             </WorkoutWrapper>
           );
         })}
-
+        <CardActionButton
+          title="Save"
+          onPress={() => {
+            rootStore.workoutStore.history[dayjs().format("YYYY-MMM-DD")] =
+              rootStore.workoutStore.currentExercise;
+            rootStore.workoutStore.currentExercise = [];
+            history.push("/");
+          }}
+        />
         {timer.isRunning ? (
           <WorkoutTimerContainer>
             <WorkoutTimer

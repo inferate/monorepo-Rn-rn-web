@@ -1,6 +1,7 @@
 import { observable } from "mobx";
+import { persist } from "mobx-persist";
 import { ICurrentWorkoutDay } from "../enums/ICurrentWorkoutDay";
-import { IWorkoutStoreHistory } from "../models/IWorkoutStore";
+import { IWorkoutStoreHistory } from "../models/IWorkoutStoreHistory";
 import { ICurrentWorkoutExercise } from "./../models/ICurrentWorkoutExercise";
 import { RootStore } from "./RootStore";
 
@@ -9,13 +10,13 @@ export class WorkoutStore {
   constructor(rootStore: RootStore) {
     this.rootStore = rootStore;
   }
-  @observable currentSquats: number;
-  @observable currentBenchPress: number;
-  @observable currentOverheadPress: number;
-  @observable currentLifts: number;
-  @observable currentJumps: number;
-  @observable currentWorkoutDay: ICurrentWorkoutDay;
-  @observable workoutHistory: IWorkoutStoreHistory;
+  @persist @observable currentSquats: number;
+  @persist @observable currentBenchPress: number;
+  @persist @observable currentOverheadPress: number;
+  @persist @observable currentLifts: number;
+  @persist @observable currentJumps: number;
+  @persist @observable currentWorkoutDay: ICurrentWorkoutDay;
+  @persist("object") @observable history: IWorkoutStoreHistory = {};
 
-  @observable currentExercise: ICurrentWorkoutExercise[] = [];
+  @persist("list") @observable currentExercise: ICurrentWorkoutExercise[] = [];
 }
