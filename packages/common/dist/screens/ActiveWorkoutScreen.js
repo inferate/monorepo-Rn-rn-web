@@ -50,8 +50,7 @@ exports.ActiveWorkoutScreen = mobx_react_lite_1.observer(function (_a) {
                     }, key: el.exercise, sets: el.sets, weightTimesReps: el.numSets + "x" + el.reps + " " + el.weight + " kgm", exercise: el.exercise })));
         }),
         react_1.default.createElement(MainLayout_1.CardActionButton, { title: "Save", onPress: function () {
-                rootStore.workoutStore.history[dayjs_1.default().format("YYYY-MMM-DD")] =
-                    rootStore.workoutStore.currentExercise;
+                rootStore.workoutStore.history[dayjs_1.default(new Date(+new Date() - Math.floor(Math.random() * 10000000000))).format("YYYY-MMM-DD")] = rootStore.workoutStore.currentExercise;
                 rootStore.workoutStore.currentExercise = [];
                 history.push("/");
             } }),

@@ -5,7 +5,7 @@ export declare enum ICurrentWorkoutDay {
 export declare enum exerciseName {
     Squat = "SQ",
     DeadLift = "DL",
-    BenchPress = "BP",
-    OverheadPress = "OP",
-    BarbelRow = "BR"
+    "Bench Press" = "BP",
+    "Overhead Press" = "OP",
+    "BarbelRow" = "BR"
 }

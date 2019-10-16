@@ -19,12 +19,9 @@ export const TimerText = styled(Text)`
   font-size: 20px;
 `;
 export const ProgressBar = styled(View)`
- 
   height: 3px;
   bottom: 20px;
-
   right: 20px;
-
   background-color: black;
 `;
 

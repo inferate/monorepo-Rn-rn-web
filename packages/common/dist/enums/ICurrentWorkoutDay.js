@@ -9,7 +9,7 @@ var exerciseName;
 (function (exerciseName) {
     exerciseName["Squat"] = "SQ";
     exerciseName["DeadLift"] = "DL";
-    exerciseName["BenchPress"] = "BP";
-    exerciseName["OverheadPress"] = "OP";
+    exerciseName["Bench Press"] = "BP";
+    exerciseName["Overhead Press"] = "OP";
     exerciseName["BarbelRow"] = "BR";
 })(exerciseName = exports.exerciseName || (exports.exerciseName = {}));

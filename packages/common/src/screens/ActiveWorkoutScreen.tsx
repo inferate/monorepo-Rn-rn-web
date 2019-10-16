@@ -53,8 +53,11 @@ export const ActiveWorkoutScreen: React.FC<IActiveWorkoutScreen> = observer(
         <CardActionButton
           title="Save"
           onPress={() => {
-            rootStore.workoutStore.history[dayjs().format("YYYY-MMM-DD")] =
-              rootStore.workoutStore.currentExercise;
+            rootStore.workoutStore.history[
+              dayjs(
+                new Date(+new Date() - Math.floor(Math.random() * 10000000000))
+              ).format("YYYY-MMM-DD")
+            ] = rootStore.workoutStore.currentExercise;
             rootStore.workoutStore.currentExercise = [];
             history.push("/");
           }}
