@@ -1,5 +1,5 @@
 import { ICurrentWorkoutDay } from "../enums/ICurrentWorkoutDay";
-import { IWorkoutStoreHistory } from "../models/IWorkoutStore";
+import { IWorkoutStoreHistory } from "../models/IWorkoutStoreHistory";
 import { ICurrentWorkoutExercise } from "./../models/ICurrentWorkoutExercise";
 import { RootStore } from "./RootStore";
 export declare class WorkoutStore {
@@ -11,6 +11,6 @@ export declare class WorkoutStore {
     currentLifts: number;
     currentJumps: number;
     currentWorkoutDay: ICurrentWorkoutDay;
-    workoutHistory: IWorkoutStoreHistory;
+    history: IWorkoutStoreHistory;
     currentExercise: ICurrentWorkoutExercise[];
 }

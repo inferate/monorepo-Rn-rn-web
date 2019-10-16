@@ -1,4 +1,4 @@
-import { TouchableOpacity, View } from "react-native";
+import { Button, TouchableOpacity, View } from "react-native";
 import styled from "styled-components";
 
 export const TopHeader = styled(View)`
@@ -26,5 +26,9 @@ export const EmptyReps = styled(TouchableOpacity)`
   border-radius: 100%;
   padding: 30px;
   margin: auto;
+  background-color: ${props => props.theme.textStyle.empty};
+`;
+
+export const CardActionButton = styled(Button)`
   background-color: ${props => props.theme.textStyle.empty};
 `;

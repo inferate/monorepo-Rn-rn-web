@@ -6,8 +6,6 @@ export const Container = styled(View)`
   width: 100%;
   margin: 20px;
   background-color: ${props => props.theme.backgroundStyle.primary};
-  justify-content: center;
-  align-items: center;
 `;
 
 export const Title = styled(Text)`
@@ -24,7 +22,6 @@ export const DefTextTitle = styled(Text)`
   color: ${props => props.theme.textStyle.primary};
 `;
 export const AppWrapper = styled(View)`
- 
  flex:1;
   width:100%
   max-width:450px;

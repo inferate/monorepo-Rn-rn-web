@@ -1,5 +1,5 @@
-import React from "react";
+/// <reference types="react" />
 interface IActiveWorkoutScreen {
 }
-export declare const Navigation: React.FunctionComponent<IActiveWorkoutScreen>;
+export declare const Navigation: (props: IActiveWorkoutScreen) => JSX.Element;
 export {};
