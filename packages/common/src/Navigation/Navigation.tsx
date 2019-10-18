@@ -10,6 +10,11 @@ export const Navigation = (props: IActiveWorkoutScreen) => {
       <Switch>
         <Route exact path="/" component={WorkoutHistoryScreen} />
         <Route exact path="/current-workout" component={ActiveWorkoutScreen} />
+        <Route
+          exact
+          path="/workout/:year/:month/:day"
+          component={ActiveWorkoutScreen}
+        />
       </Switch>
     </Router>
   );

@@ -1,12 +1,6 @@
 import { Text, TouchableOpacity, View } from "react-native";
 import styled from "styled-components";
 
-// export const WorkoutTimerWrapper = styled(View)`
-//   bottom: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 50px;
-// `;
 export const WorkoutTimerContainer = styled(View)`
   width: 100%;
   padding: 10px;

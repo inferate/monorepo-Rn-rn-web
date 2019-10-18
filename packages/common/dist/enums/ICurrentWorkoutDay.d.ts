@@ -7,5 +7,5 @@ export declare enum exerciseName {
     DeadLift = "DL",
     "Bench Press" = "BP",
     "Overhead Press" = "OP",
-    "BarbelRow" = "BR"
+    "Barbell Row" = "BR"
 }

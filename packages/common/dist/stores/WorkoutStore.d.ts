@@ -1,16 +1,20 @@
-import { ICurrentWorkoutDay } from "../enums/ICurrentWorkoutDay";
 import { IWorkoutStoreHistory } from "../models/IWorkoutStoreHistory";
 import { ICurrentWorkoutExercise } from "./../models/ICurrentWorkoutExercise";
 import { RootStore } from "./RootStore";
+declare type WorkoutDay = "a" | "b";
 export declare class WorkoutStore {
     rootStore: RootStore;
     constructor(rootStore: RootStore);
-    currentSquats: number;
+    currentSquat: number;
     currentBenchPress: number;
     currentOverheadPress: number;
+    currentDeadLift: number;
+    currentBarbellRow: number;
     currentLifts: number;
     currentJumps: number;
-    currentWorkoutDay: ICurrentWorkoutDay;
+    lastWorkoutType: WorkoutDay;
     history: IWorkoutStoreHistory;
+    readonly hasCurrentWorkout: boolean;
     currentExercise: ICurrentWorkoutExercise[];
 }
+export {};

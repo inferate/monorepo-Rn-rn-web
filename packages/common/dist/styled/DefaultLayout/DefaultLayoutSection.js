@@ -9,12 +9,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_native_1 = require("react-native");
 var styled_components_1 = __importDefault(require("styled-components"));
-// export const WorkoutTimerWrapper = styled(View)`
-//   bottom: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 50px;
-// `;
 exports.WorkoutTimerContainer = styled_components_1.default(react_native_1.View)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  width: 100%;\n  padding: 10px;\n  background-color: ", ";\n"], ["\n  width: 100%;\n  padding: 10px;\n  background-color: ", ";\n"])), function (props) { return props.theme.backgroundStyle.secondary; });
 exports.TimerBox = styled_components_1.default(react_native_1.TouchableOpacity)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  color: ", ";\n"], ["\n  color: ", ";\n"])), function (props) { return props.theme.secondary; });
 exports.TimerText = styled_components_1.default(react_native_1.Text)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  font-size: 20px;\n"], ["\n  font-size: 20px;\n"])));
