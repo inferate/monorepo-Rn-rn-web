@@ -1,5 +1,5 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import { exerciseName } from "../enums/ICurrentWorkoutDay";
 import { ICurrentWorkoutExercise } from "../models/ICurrentWorkoutExercise";
 import { WorkoutInformationCard } from "../styled/DefaultCard/DefaultCard";
@@ -7,25 +7,31 @@ import { WorkoutInformationCard } from "../styled/DefaultCard/DefaultCard";
 interface IHistoryCard {
   day: string;
   currentExercise: ICurrentWorkoutExercise[];
+  onPress?: () => void;
 }
 
 export const HistoryCard: React.FC<IHistoryCard> = ({
   day,
-  currentExercise
+  currentExercise,
+  onPress
 }) => {
   return (
     <WorkoutInformationCard>
-      <Text>{day}</Text>
-      {currentExercise.map(name => {
-        return (
-          <Text key={name.exercise}>
-            {`${exerciseName[name.exercise as keyof typeof exerciseName]}: ${
-              name.numSets
-            }X${name.reps} ${name.weight}
+      <TouchableOpacity onPress={onPress}>
+        <Text>{day}</Text>
+        <React.Fragment>
+          {currentExercise.map(name => {
+            return (
+              <Text key={name.exercise}>
+                {`${
+                  exerciseName[name.exercise as keyof typeof exerciseName]
+                }: ${name.numSets}X${name.reps} ${name.weight} KGM
           `}
-          </Text>
-        );
-      })}
+              </Text>
+            );
+          })}
+        </React.Fragment>
+      </TouchableOpacity>
     </WorkoutInformationCard>
   );
 };

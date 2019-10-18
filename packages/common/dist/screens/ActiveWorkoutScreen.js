@@ -21,7 +21,7 @@ var MainLayout_1 = require("../styled/DefaultLayout/MainLayout");
 var WorkoutContent_1 = require("../WorkoutContent/WorkoutContent");
 var WorkoutTimer_1 = require("../WorkoutContent/WorkoutTimer/WorkoutTimer");
 exports.ActiveWorkoutScreen = mobx_react_lite_1.observer(function (_a) {
-    var history = _a.history;
+    var history = _a.history, _b = _a.match.params, day = _b.day, month = _b.month, year = _b.year;
     var rootStore = react_1.useContext(RootStore_1.RootStoreContext);
     var timer = rootStore.timerStore;
     react_1.useEffect(function () {
@@ -29,8 +29,12 @@ exports.ActiveWorkoutScreen = mobx_react_lite_1.observer(function (_a) {
             timer.stopTimer();
         };
     }, []);
+    var renderActiveWorkout = !year && !month && !day;
+    var renderDateWorkout = year + "-" + month + "-" + day;
     return (react_1.default.createElement(styled_1.Container, null,
-        rootStore.workoutStore.currentExercise.map(function (el) {
+        (renderActiveWorkout
+            ? rootStore.workoutStore.currentExercise
+            : rootStore.workoutStore.history[renderDateWorkout]).map(function (el) {
             return (react_1.default.createElement(DefaultCard_1.WorkoutWrapper, null,
                 react_1.default.createElement(WorkoutContent_1.WorkoutContent, { onSetPress: function (index) {
                         rootStore.timerStore.startTimer();
@@ -50,8 +54,10 @@ exports.ActiveWorkoutScreen = mobx_react_lite_1.observer(function (_a) {
                     }, key: el.exercise, sets: el.sets, weightTimesReps: el.numSets + "x" + el.reps + " " + el.weight + " kgm", exercise: el.exercise })));
         }),
         react_1.default.createElement(MainLayout_1.CardActionButton, { title: "Save", onPress: function () {
-                rootStore.workoutStore.history[dayjs_1.default(new Date(+new Date() - Math.floor(Math.random() * 10000000000))).format("YYYY-MMM-DD")] = rootStore.workoutStore.currentExercise;
-                rootStore.workoutStore.currentExercise = [];
+                if (renderActiveWorkout) {
+                    rootStore.workoutStore.history[dayjs_1.default(new Date(+new Date() - Math.floor(Math.random() * 10000000000))).format("YYYY-MMM-DD")] = rootStore.workoutStore.currentExercise;
+                    rootStore.workoutStore.currentExercise = [];
+                }
                 history.push("/");
             } }),
         timer.isRunning ? (react_1.default.createElement(DefaultLayoutSection_1.WorkoutTimerContainer, null,

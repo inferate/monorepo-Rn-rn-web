@@ -10,13 +10,28 @@ var mobx_1 = require("mobx");
 var mobx_persist_1 = require("mobx-persist");
 var WorkoutStore = /** @class */ (function () {
     function WorkoutStore(rootStore) {
+        this.currentSquat = 45;
+        this.currentBenchPress = 55;
+        this.currentOverheadPress = 33;
+        this.currentDeadLift = 65;
+        this.currentBarbellRow = 65;
+        this.currentLifts = 65;
+        this.currentJumps = 65;
+        this.lastWorkoutType = "a";
         this.history = {};
         this.currentExercise = [];
         this.rootStore = rootStore;
     }
+    Object.defineProperty(WorkoutStore.prototype, "hasCurrentWorkout", {
+        get: function () {
+            return !!this.currentExercise.length;
+        },
+        enumerable: true,
+        configurable: true
+    });
     __decorate([
         mobx_persist_1.persist, mobx_1.observable
-    ], WorkoutStore.prototype, "currentSquats", void 0);
+    ], WorkoutStore.prototype, "currentSquat", void 0);
     __decorate([
         mobx_persist_1.persist, mobx_1.observable
     ], WorkoutStore.prototype, "currentBenchPress", void 0);
@@ -25,16 +40,25 @@ var WorkoutStore = /** @class */ (function () {
     ], WorkoutStore.prototype, "currentOverheadPress", void 0);
     __decorate([
         mobx_persist_1.persist, mobx_1.observable
+    ], WorkoutStore.prototype, "currentDeadLift", void 0);
+    __decorate([
+        mobx_persist_1.persist, mobx_1.observable
+    ], WorkoutStore.prototype, "currentBarbellRow", void 0);
+    __decorate([
+        mobx_persist_1.persist, mobx_1.observable
     ], WorkoutStore.prototype, "currentLifts", void 0);
     __decorate([
         mobx_persist_1.persist, mobx_1.observable
     ], WorkoutStore.prototype, "currentJumps", void 0);
     __decorate([
         mobx_persist_1.persist, mobx_1.observable
-    ], WorkoutStore.prototype, "currentWorkoutDay", void 0);
+    ], WorkoutStore.prototype, "lastWorkoutType", void 0);
     __decorate([
         mobx_persist_1.persist("object"), mobx_1.observable
     ], WorkoutStore.prototype, "history", void 0);
+    __decorate([
+        mobx_1.computed
+    ], WorkoutStore.prototype, "hasCurrentWorkout", null);
     __decorate([
         mobx_persist_1.persist("list"), mobx_1.observable
     ], WorkoutStore.prototype, "currentExercise", void 0);

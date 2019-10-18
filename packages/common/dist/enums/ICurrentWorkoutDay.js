@@ -11,5 +11,5 @@ var exerciseName;
     exerciseName["DeadLift"] = "DL";
     exerciseName["Bench Press"] = "BP";
     exerciseName["Overhead Press"] = "OP";
-    exerciseName["BarbelRow"] = "BR";
+    exerciseName["Barbell Row"] = "BR";
 })(exerciseName = exports.exerciseName || (exports.exerciseName = {}));

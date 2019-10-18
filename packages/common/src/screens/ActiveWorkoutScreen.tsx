@@ -10,10 +10,20 @@ import { CardActionButton } from "../styled/DefaultLayout/MainLayout";
 import { WorkoutContent } from "../WorkoutContent/WorkoutContent";
 import { WorkoutTimer } from "../WorkoutContent/WorkoutTimer/WorkoutTimer";
 
-interface IActiveWorkoutScreen extends RouteComponentProps {}
+interface IActiveWorkoutScreen
+  extends RouteComponentProps<{
+    year?: string;
+    day?: string;
+    month?: string;
+  }> {}
 
 export const ActiveWorkoutScreen: React.FC<IActiveWorkoutScreen> = observer(
-  ({ history }) => {
+  ({
+    history,
+    match: {
+      params: { day, month, year }
+    }
+  }) => {
     const rootStore = useContext(RootStoreContext);
     const timer = rootStore.timerStore;
     useEffect(() => {
@@ -21,10 +31,14 @@ export const ActiveWorkoutScreen: React.FC<IActiveWorkoutScreen> = observer(
         timer.stopTimer();
       };
     }, []);
-
+    const renderActiveWorkout = !year && !month && !day;
+    const renderDateWorkout = `${year}-${month}-${day}`;
     return (
       <Container>
-        {rootStore.workoutStore.currentExercise.map(el => {
+        {(renderActiveWorkout
+          ? rootStore.workoutStore.currentExercise
+          : rootStore.workoutStore.history[renderDateWorkout]
+        ).map(el => {
           return (
             <WorkoutWrapper>
               <WorkoutContent
@@ -53,12 +67,16 @@ export const ActiveWorkoutScreen: React.FC<IActiveWorkoutScreen> = observer(
         <CardActionButton
           title="Save"
           onPress={() => {
-            rootStore.workoutStore.history[
-              dayjs(
-                new Date(+new Date() - Math.floor(Math.random() * 10000000000))
-              ).format("YYYY-MMM-DD")
-            ] = rootStore.workoutStore.currentExercise;
-            rootStore.workoutStore.currentExercise = [];
+            if (renderActiveWorkout) {
+              rootStore.workoutStore.history[
+                dayjs(
+                  new Date(
+                    +new Date() - Math.floor(Math.random() * 10000000000)
+                  )
+                ).format("YYYY-MMM-DD")
+              ] = rootStore.workoutStore.currentExercise;
+              rootStore.workoutStore.currentExercise = [];
+            }
             history.push("/");
           }}
         />
